@@ -685,6 +685,37 @@
                     });
                 }
             };
+
+            scope.addRow = function () {
+                var termLength = document.getElementById("term").value;
+                var bank = document.getElementById("bankNumber");
+                var dueDate = new Date(document.getElementById("due").value);
+                var accNo = document.getElementById("accountNumber");
+                var chNo = document.getElementById("checkNumber");
+                var amount = document.getElementById("Amount");
+                var rowElements = [];
+                var i;
+                var str;
+
+                for (i = 0; i < termLength; ++i) {
+                    rowElements.push(
+                        $('<tr></tr>').append(
+                            $('<td></td>').html(bank.value),
+                            $('<td></td>').html(dueDate.toDateString()),
+                            $('<td></td>').html(accNo.value),
+                            $('<td></td>').html(chNo.value),
+                            $('<td></td>').html(amount.value)
+                        )
+                    );
+
+                    dueDate.setDate(dueDate.getDate() + 30);
+                    chNo.stepUp();
+                }
+
+                $('#screen').append(rowElements);
+                localStorage.setItem("data", $('#screen').html());
+
+            };
         }
     });
     mifosX.ng.application.controller('LoanAccountActionsController', ['$scope','$rootScope', 'ResourceFactory', '$location', '$routeParams', 'dateFilter', mifosX.controllers.LoanAccountActionsController]).run(function ($log) {
