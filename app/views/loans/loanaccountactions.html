@@ -295,6 +295,10 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="form-group">
+                            <button onclick="localStorage.clear();location.reload()">CLEAR</button>
+                            <button onclick="localStorage.setItem('data', $('#screen').html());location.reload()">SAVE</button>
+                        </div>
                     </div>
                 </div>
             </div>

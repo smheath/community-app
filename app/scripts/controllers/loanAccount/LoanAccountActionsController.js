@@ -700,11 +700,11 @@
                 for (i = 0; i < termLength; ++i) {
                     rowElements.push(
                         $('<tr></tr>').append(
-                            $('<td></td>').html(bank.value),
-                            $('<td></td>').html(dueDate.toDateString()),
-                            $('<td></td>').html(accNo.value),
-                            $('<td></td>').html(chNo.value),
-                            $('<td></td>').html(amount.value)
+                            $('<td contenteditable="true"></td>').html(bank.value),
+                            $('<td contenteditable="true"></td>').html(dueDate.toDateString()),
+                            $('<td contenteditable="true"></td>').html(accNo.value),
+                            $('<td contenteditable="true"></td>').html(chNo.value),
+                            $('<td contenteditable="true"></td>').html(amount.value)
                         )
                     );
 
